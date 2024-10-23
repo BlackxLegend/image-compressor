@@ -63,6 +63,14 @@ document.getElementById('compressor-form').addEventListener('submit', function(e
 
                 // Show the result
                 document.getElementById('result').style.display = 'block';
+
+                // Save button functionality
+                document.getElementById('save-button').onclick = function() {
+                    const savedImages = JSON.parse(localStorage.getItem('savedImages')) || [];
+                    savedImages.push({ url: url, originalSize: file.size, compressedSize: blob.size });
+                    localStorage.setItem('savedImages', JSON.stringify(savedImages));
+                    alert('Image saved successfully!');
+                };
             }, 'image/jpeg', 0.7); // 0.7 is the quality of the compressed image
         };
     };
