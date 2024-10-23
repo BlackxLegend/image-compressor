@@ -9,6 +9,10 @@ document.getElementById('compressor-form').addEventListener('submit', function(e
         return;
     }
 
+    // Display original size
+    const originalSizeText = `Original Size: ${(file.size / 1024).toFixed(2)} KB`;
+    document.getElementById('original-size').textContent = originalSizeText;
+
     const reader = new FileReader();
     reader.onload = function(e) {
         const img = new Image();
@@ -52,6 +56,10 @@ document.getElementById('compressor-form').addEventListener('submit', function(e
 
                 compressedImage.src = url;
                 downloadLink.href = url;
+
+                // Display compressed size
+                const compressedSizeText = `Compressed Size: ${(blob.size / 1024).toFixed(2)} KB`;
+                document.getElementById('compressed-size').textContent = compressedSizeText;
 
                 // Show the result
                 document.getElementById('result').style.display = 'block';
