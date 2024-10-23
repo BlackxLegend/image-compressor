@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.html",
   "scripts": {
-    "start": "serve ."
+    "start": "http-server ."
   },
   "dependencies": {
-    "serve": "^14.0.1" // Ensure this matches the version you installed
+    "http-server": "^14.0.0"
   }
 }
