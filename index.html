@@ -59,6 +59,11 @@
         button:hover {
             background-color: #357ABD;
         }
+        h2 {
+            color: #333;
+            margin-top: 30px;
+            font-size: 2em;
+        }
         .compressed-image {
             margin-top: 20px;
             text-align: center;
@@ -66,6 +71,10 @@
             padding: 10px;
             border-radius: 8px;
             box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .compressed-image:hover {
+            transform: scale(1.02);
         }
         .compressed-image img {
             max-width: 100%;
@@ -73,18 +82,29 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
+        .image-container {
+            margin-bottom: 20px;
+        }
+        #result {
+            display: none;
+        }
+        p {
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
     <h1>Image Compressor</h1>
     <form id="compressor-form">
-        <input type="file" id="image-input" accept="image/*" required>
+        <input type="file" id="image-input" name="image" accept="image/*" required>
         <button type="submit">Compress</button>
     </form>
 
-    <div id="result" class="compressed-image" style="display:none;">
+    <div id="result" class="compressed-image">
         <h2>Compressed Image:</h2>
         <img id="compressed-image" alt="Compressed Image">
+        <p id="original-size"></p>
+        <p id="compressed-size"></p>
         <p><a id="download-link" href="#" download>Download Compressed Image</a></p>
     </div>
 
