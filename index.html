@@ -91,6 +91,15 @@
         p {
             margin: 10px 0;
         }
+        a {
+            margin-top: 20px;
+            color: #4A90E2;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #357ABD;
+        }
     </style>
 </head>
 <body>
@@ -106,7 +115,10 @@
         <p id="original-size"></p>
         <p id="compressed-size"></p>
         <p><a id="download-link" href="#" download>Download Compressed Image</a></p>
+        <button id="save-button">Save Image</button> <!-- Button to save the image -->
     </div>
+
+    <a href="results-image.html">View Saved Images</a>
 
     <script src="compressor.js"></script>
 </body>
