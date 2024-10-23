@@ -9,9 +9,8 @@ document.getElementById('compressor-form').addEventListener('submit', function(e
         return;
     }
 
-    // Display original size
-    const originalSizeText = `Original Size: ${(file.size / 1024).toFixed(2)} KB`;
-    document.getElementById('original-size').textContent = originalSizeText;
+    // Get the original size in kilobytes
+    const originalSizeKB = (file.size / 1024).toFixed(2); // Size in KB
 
     const reader = new FileReader();
     reader.onload = function(e) {
@@ -57,9 +56,12 @@ document.getElementById('compressor-form').addEventListener('submit', function(e
                 compressedImage.src = url;
                 downloadLink.href = url;
 
-                // Display compressed size
-                const compressedSizeText = `Compressed Size: ${(blob.size / 1024).toFixed(2)} KB`;
-                document.getElementById('compressed-size').textContent = compressedSizeText;
+                // Get the compressed size in kilobytes
+                const compressedSizeKB = (blob.size / 1024).toFixed(2); // Size in KB
+
+                // Display the size information
+                document.getElementById('size-info').innerText = 
+                    `Original size: ${originalSizeKB} KB → Compressed size: ${compressedSizeKB} KB`;
 
                 // Show the result
                 document.getElementById('result').style.display = 'block';
